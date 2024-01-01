@@ -1,34 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy new year</title>
-    <link rel="stylesheet" href="index.css"
-    
-</head>
-<body>
-    <h2>New year</h2>
-    <div class="countdown-container">
- <div class="countdown-el days-c">
-     <p class="big-test" id="days">0</p>
-     <span>Days</span>
- </div>
- <div class="countdown-el hours-c">
-    <p class="big-test" id="hours">0</p>
-    <span>Hours</span>
-</div>
-<div class="countdown-el mins-c">
-    <p class="big-test" id="mins">0</p>
-    <span>Mins</span>
-</div>
-<div class="countdown-el sec-c">
-    <p class="big-test" id="sec">0</p>
-    <span>Seconds</span>
-</div>
- <script src="index.js"> </script>
-    </div>
- 
+
+<html>
+<style>
+body {
+  color: coral;
+  background-color: black;
+}
+
+h1 {
+  color: green;
+}
+</style>
+  <script type="text/javascript" charset="utf-8">
+    let a;
+    let time;
+    setInterval(() => {
+      a = new Date();
+	let datestr = a.toLocaleDateString();
+      time = datestr + '  ' + a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+      document.getElementById('time').innerHTML = time;
+    }, 1000);
+  </script>
+<h1>Happy New Year! Reset and reboot 2024 in progress...</h1>
+  <h2><span id="time"></span></h2>
 </body>
+<br>
+<img src="newyear.gif" alt="Dinosaur" />
 </html>
