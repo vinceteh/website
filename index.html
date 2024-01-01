@@ -21,7 +21,18 @@ h1 {
     }, 1000);
   </script>
 <h1>Happy New Year! Reset and reboot 2024 in progress...</h1>
-  <h2><span id="time"></span></h2>
+  <h2><span id="time"></span>
+  <script type="text/javascript" src="lunar2024.js" charset="utf-8">
+</script>
+  <script  charset="utf-8" >
+ let abc;
+const a1 = new Date();
+const b = a1.getMonth() + 1;
+const c = a1.getDate();
+ abc = lunar2024.go(b, c);
+document.write(abc);
+</script>
+  </h2>
 </body>
 <br>
 <img src="newyear.gif" alt="Dinosaur" />
