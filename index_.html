@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>This is the title of the webpage!</title>
+</head>
+<body>
+    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    <script src="lunar2024.js"></script>
+    <h1>
+        <script charset="utf-8">
+            let weekday = ['日', '一', '二', '三', '四', '五', '六'];
+            let a;
+            let time;
+            setInterval(() => {
+                a = new Date();
+                let datestr = a.toLocaleDateString();
+                time = lunar2024.go(a.getMonth() + 1, a.getDate()) + "<br>星期" + weekday[a.getDay()] + "<br>" + datestr + '  ' + a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+                document.getElementById('time').innerHTML = time;
+            }, 1000);
+        </script>
+
+
+        <span id="time"></span>
+        <script>
+            (function (d, s, id) {
+                if (d.getElementById(id)) {
+                    if (window.__TOMORROW__) {
+                        window.__TOMORROW__.renderWidget();
+                    }
+                    return;
+                }
+                const fjs = d.getElementsByTagName(s)[0];
+                const js = d.createElement(s);
+                js.id = id;
+                js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            })(document, 'script', 'tomorrow-sdk');
+        </script>
+    </h1>
+        <div class="tomorrow"
+             data-location-id="104057"
+             data-language="EN"
+             data-unit-system="METRIC"
+             data-skin="light"
+             data-widget-type="upcoming"
+             style="padding-bottom:22px;position:relative;">
+            <a href="https://www.tomorrow.io/weather-api/"
+               rel="nofollow noopener noreferrer"
+               target="_blank"
+               style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;">
+                <img alt="Powered by the Tomorrow.io Weather API"
+                     src="https://weather-website-client.tomorrow.io/img/powered-by.svg"
+                     width="250"
+                     height="18" />
+            </a>
+        </div>
+</body>
+</html>
