@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta charset="utf-8">
+<style>
+body {
+  background: #555;
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+  color: MediumSeaGreen;
+  background: black;
+  padding: 10px;
+}
+
+.weekend {
+  color: Tomato;
+  margin: auto;
+  max-width: 800px;
+  background: black;
+  padding: 10px;
+}
+
+</style>
+
+<style>
+      span.serif {
+        font-family: "serif";
+      }
+
+      span.courier {
+        font-family: "courier";
+      }
+    </style>
+
+	<script type="text/javascript" src="lunar2024.js"></script>
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+<div id="myDiv" class="content">
+	<!-- your own content -->
+<script src="js/calendar-converter.js"></script>
+<script>
+function changeClass(weekday) {
+//alert(weekday);
+ var element = document.querySelector("#myDiv");
+if(weekday == 6 || weekday == 0){
+        element.classList.replace("content", "weekend");
+        return true;
+        }
+}
+</script>
+
+<script>
+let a;
+    let time;
+    setInterval(() => {
+      a = new Date();
+        let datestr = a.toLocaleDateString();
+      time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+      document.getElementById('time').innerHTML = time;
+    }, 1000);
+</script>
+<h1><p id="time"></p>
+<script>
+let a1;
+a1 = new Date();
+const b = a1.getMonth() + 1;
+const c = a1.getDate();
+const e = lunar2024.go(b, c);
+
+//alert(a1.getDay());
+//if(a1.getDay() == 6 || myDate.getDay() == 0)  console.log('--Weekend ', myDate);
+
+
+//document.write("<p>" + e + "</p>"); // Will output '甲辰年二月十三'
+var cc  =new CalendarConverter;
+const f = cc.solar2lunar(new Date(a1.getFullYear(), a1.getMonth(), a1.getDate()));
+//alert(JSON.stringify(f));
+const gmonth = f.lMonth;
+const gday = Math.ceil(f.lDay);
+//alert(f.lYear);
+let LunaDate;
+LunaDate =   f.solarTerms + " " + f.solarFestival + "<br>" + f.lunarYear + "年" + f.lMonth + "月" +gday + "日";
+document.write("<p>" +  LunaDate + "<br>" + f.sDay + "/" + f.sMonth + "/" + f.sYear + "<br>星期"+f.week +"</p>"); 
+let isweekend = changeClass(a1.getDay()); 
+//alert(isweekend);
+</script>
+</h1>
+<script>
+        (function(d, s, id) {
+            if (d.getElementById(id)) {
+                if (window.__TOMORROW__) {
+                    window.__TOMORROW__.renderWidget();
+                }
+                return;
+            }
+            const fjs = d.getElementsByTagName(s)[0];
+            const js = d.createElement(s);
+            js.id = id;
+            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+            fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'tomorrow-sdk');
+        </script>
+
+        <div class="tomorrow"
+           data-location-id="076565"
+           data-language="EN"
+           data-unit-system="METRIC"
+           data-skin="dark"
+           data-widget-type="aqiMini"
+           style="padding-bottom:22px;position:relative;"
+        >
+          <a
+            href="https://www.tomorrow.io/weather-api/"
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+            style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;"
+          >
+            <img
+              alt="Powered by the Tomorrow.io Weather API"
+              src="https://weather-website-client.tomorrow.io/img/powered-by.svg"
+              width="250"
+              height="18"
+            />
+          </a>
+        </div>
+<iframe src="https://vinceteh.github.io/vinceteh/cd.html" style="border: 0" width="800" height="200" frameborder="0" scrolling="no"></iframe>
+<!--<iframe src="https://calendar.google.com/calendar/embed?src=superwhite.zone%40gmail.com&ctz=Asia%2FKuala_Lumpur" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+-->
+</div>
+</body>
+</html>
